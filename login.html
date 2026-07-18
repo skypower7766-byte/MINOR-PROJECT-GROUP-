@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@shakti.kumar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #277df7 0%, #32de22 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px; /* Enables 3D perspective */
+        }
+        
+        .login-container {
+            background: hwb(294 3% 27% / 0.005);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(49, 165, 248, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+         .login-container:hover {
+         transform: rotateY(10deg) rotateX(5deg); /* 3D hover effect */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0703fd;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #6d88f6;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #fc0505;
+            color: rgb(68, 157, 240);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+        button:hover {
+            background: #d91807;
+        }
+        .login-successful {
+            color: rgb(243, 7, 7);
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+            <input type="text" id="USERNAME" placeholder="USERNAME" required>
+            <input type="PASSWORD" id="PASSWORD" placeholder="PASSWORD" required>
+            <button type="submit">LOGIN</button>
+        </form>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const username = document.getElementById('USERNAME').value;
+            const password = document.getElementById('PASSWORD').value;
+            const errorDiv = document.getElementById('404ERROR');
+
+            // Simple validation (replace with real authentication)
+            if (username === '@SHAKTI' && password === '@SHAKTI8292') {
+                 sessionStorage.setItem("login", "true"); // testing session
+                 window.location.href = "index.html";     // redirect
+                errorDiv.textContent = 'Login successful!';
+                errorDiv.style.color = 'green';  
+               // Redirect or handle success here
+            } else {
+                errorDiv.textContent = 'Invalid username or password.';
+            }
+        });
+
+        // Add 3D rotation on mouse move for extra effect
+        document.addEventListener('mousemove', function(e) {
+            const container = document.querySelector('.login-container');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        //Add 3D rotation on mouse move for extra effect
+        document.addEventListener('mousemove',function(e){
+            
+        })
+    </script>
+</html>
