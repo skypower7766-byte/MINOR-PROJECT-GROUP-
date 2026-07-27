@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap.com</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #277df7 0%, #32de22 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        .login-container {
+            background: hwb(294 3% 27% / 0.005);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(49, 165, 248, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            width: 320px;
+        }
+
+        .login-container:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0703fd;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #6d88f6;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #fc0505;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+
+        button:hover {
+            background: #d91807;
+        }
+
+        button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        #404ERROR {
+            text-align: center;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+            color: white;
+        }
+
+        a {
+            color: #00ff99;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="USERNAME" placeholder="Username" required>
+            <input type="password" id="PASSWORD" placeholder="Password" required>
+            <button type="submit" id="loginBtn">Login</button>
+            <div id="404ERROR"></div>
+        </form>
+        <p>Don't have an account? <a href="index2.html">Register here</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('USERNAME').value.trim();
+            const password = document.getElementById('PASSWORD').value;
+            const errorDiv = document.getElementById('404ERROR');
+            const loginBtn = document.getElementById('loginBtn');
+
+            if (!username || !password) {
+                errorDiv.textContent = "Please enter both username and password.";
+                errorDiv.style.color = "red";
+                return;
+            }
+
+            // Look up the user by the same key format used at registration
+            const storedUser = JSON.parse(localStorage.getItem('user_' + username));
+
+            if (storedUser && password === storedUser.password) {
+                sessionStorage.setItem("login", "true");
+                sessionStorage.setItem("currentUser", username);
+
+                errorDiv.textContent = "Login Successful!";
+                errorDiv.style.color = "green";
+                loginBtn.disabled = true;
+
+                setTimeout(() => {
+                    window.location.href = "homepage.html";
+                }, 1000);
+            } else {
+                errorDiv.textContent = "Invalid Username or Password";
+                errorDiv.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
+
