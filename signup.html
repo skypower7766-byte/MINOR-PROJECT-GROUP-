@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkillSwap — Log in</title>
+<title>SkillSwap — Create account</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,11 +15,9 @@
     --brass:#C9A227;
     --brass-light:#E4C765;
     --paper:#EFE7D8;
-    --paper-dim:#DCD2BC;
     --muted:#9198C2;
     --success:#4FA972;
     --error:#D1503A;
-    --radius:18px;
   }
 
   *{box-sizing:border-box;}
@@ -28,8 +26,8 @@
     margin:0;
     min-height:100vh;
     background:
-      radial-gradient(1200px 600px at 15% 20%, rgba(201,162,39,0.10), transparent 60%),
-      radial-gradient(900px 500px at 90% 85%, rgba(201,162,39,0.08), transparent 55%),
+      radial-gradient(1200px 600px at 85% 15%, rgba(201,162,39,0.10), transparent 60%),
+      radial-gradient(900px 500px at 10% 90%, rgba(201,162,39,0.08), transparent 55%),
       var(--ink-900);
     font-family:'Inter', sans-serif;
     display:flex;
@@ -41,9 +39,9 @@
 
   .shell{
     width:100%;
-    max-width:920px;
+    max-width:960px;
     display:grid;
-    grid-template-columns:1.05fr 1fr;
+    grid-template-columns:0.95fr 1.05fr;
     background:var(--ink-800);
     border-radius:24px;
     overflow:hidden;
@@ -57,16 +55,10 @@
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    background:
-      linear-gradient(160deg, var(--ink-700) 0%, var(--ink-800) 65%);
+    background:linear-gradient(160deg, var(--ink-700) 0%, var(--ink-800) 65%);
     border-right:1px dashed rgba(201,162,39,0.25);
   }
-
-  .mark{
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
+  .mark{display:flex; align-items:center; gap:12px;}
   .mark-glyph{
     width:38px;height:38px;
     border-radius:10px;
@@ -77,15 +69,9 @@
     color:var(--ink-900);
     font-size:18px;
   }
-  .mark-name{
-    font-family:'Fraunces', serif;
-    font-size:19px;
-    letter-spacing:0.02em;
-  }
+  .mark-name{font-family:'Fraunces', serif; font-size:19px; letter-spacing:0.02em;}
 
-  .headline{
-    margin-top:40px;
-  }
+  .headline{margin-top:40px;}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
@@ -98,89 +84,60 @@
     font-family:'Fraunces', serif;
     font-weight:400;
     font-style:italic;
-    font-size:34px;
-    line-height:1.2;
+    font-size:32px;
+    line-height:1.25;
     margin:0 0 14px;
-    color:var(--paper);
   }
-  .sub{
-    color:var(--muted);
-    font-size:14.5px;
-    line-height:1.6;
-    max-width:34ch;
-  }
+  .sub{color:var(--muted); font-size:14.5px; line-height:1.6; max-width:32ch;}
 
-  /* rotating swap ticker */
-  .ticker{
-    position:relative;
-    height:26px;
-    margin-top:26px;
+  .how-list{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .how-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:13.5px;
+    color:var(--muted);
+  }
+  .how-item b{
     font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
     color:var(--brass-light);
-    overflow:hidden;
-  }
-  .ticker span{
-    position:absolute;
-    left:0;
-    opacity:0;
-    animation:tick 9s infinite;
-  }
-  .ticker span:nth-child(1){animation-delay:0s;}
-  .ticker span:nth-child(2){animation-delay:3s;}
-  .ticker span:nth-child(3){animation-delay:6s;}
-  @keyframes tick{
-    0%{opacity:0; transform:translateY(6px);}
-    6%{opacity:1; transform:translateY(0);}
-    28%{opacity:1; transform:translateY(0);}
-    34%{opacity:0; transform:translateY(-6px);}
-    100%{opacity:0;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .ticker span{animation:none; opacity:0;}
-    .ticker span:nth-child(1){opacity:1;}
+    font-size:12px;
+    min-width:20px;
   }
 
   .stat-row{
     display:flex;
     gap:28px;
     margin-top:auto;
-    padding-top:36px;
+    padding-top:32px;
     border-top:1px dashed rgba(239,231,216,0.15);
   }
-  .stat b{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-size:22px;
-    color:var(--brass-light);
-  }
-  .stat span{
-    font-size:11.5px;
-    color:var(--muted);
-    letter-spacing:0.04em;
-  }
+  .stat b{display:block; font-family:'Fraunces', serif; font-size:22px; color:var(--brass-light);}
+  .stat span{font-size:11.5px; color:var(--muted); letter-spacing:0.04em;}
 
   /* ---------- Ticket / form panel ---------- */
   .ticket-wrap{
-    padding:44px 40px;
+    padding:40px 40px 34px;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    position:relative;
   }
-
   .ticket-head{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
-    margin-bottom:26px;
+    margin-bottom:22px;
   }
   .ticket-head h2{
     font-family:'Fraunces', serif;
     font-weight:600;
     font-size:24px;
     margin:0;
-    color:var(--paper);
   }
   .ticket-no{
     font-family:'IBM Plex Mono', monospace;
@@ -189,18 +146,15 @@
     letter-spacing:0.08em;
   }
 
-  form{display:flex; flex-direction:column; gap:22px;}
+  form{display:flex; flex-direction:column; gap:18px;}
 
-  .field{
-    position:relative;
-  }
   .field label{
     display:block;
-    font-size:11px;
+    font-size:10.5px;
     letter-spacing:0.1em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:8px;
+    margin-bottom:7px;
     font-family:'IBM Plex Mono', monospace;
   }
   .field input{
@@ -208,38 +162,60 @@
     background:transparent;
     border:none;
     border-bottom:1.5px solid rgba(239,231,216,0.25);
-    padding:8px 2px 10px;
-    font-size:15.5px;
+    padding:7px 2px 9px;
+    font-size:15px;
     color:var(--paper);
     font-family:'Inter', sans-serif;
     outline:none;
     transition:border-color 0.2s ease;
   }
   .field input::placeholder{color:rgba(239,231,216,0.3);}
-  .field input:focus{
-    border-bottom-color:var(--brass-light);
-  }
+  .field input:focus{border-bottom-color:var(--brass-light);}
   .field input:focus-visible{
     outline:2px solid var(--brass-light);
     outline-offset:4px;
     border-radius:2px;
   }
 
-  .row-between{
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 20px;
+  }
+
+  .otp-row{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:12.5px;
-    color:var(--muted);
+    align-items:flex-end;
+    gap:10px;
   }
-  .row-between a{
+  .otp-row .field{flex:1;}
+
+  button.ghost{
+    flex-shrink:0;
+    height:38px;
+    padding:0 16px;
+    border:1.5px solid var(--brass-light);
+    background:transparent;
     color:var(--brass-light);
-    text-decoration:none;
+    border-radius:8px;
+    font-size:12.5px;
+    font-weight:600;
+    font-family:'IBM Plex Mono', monospace;
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease;
   }
-  .row-between a:hover{text-decoration:underline;}
+  button.ghost:hover{background:var(--brass-light); color:var(--ink-900);}
+  button.ghost:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+    background:transparent;
+    color:var(--muted);
+    border-color:var(--muted);
+  }
+  button.ghost:focus-visible{outline:2px solid var(--paper); outline-offset:3px;}
 
   button.cta{
-    margin-top:6px;
+    margin-top:4px;
     width:100%;
     padding:14px;
     border:none;
@@ -253,19 +229,9 @@
     transition:transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
     box-shadow:0 10px 22px rgba(201,162,39,0.25);
   }
-  button.cta:hover{
-    transform:translateY(-1px);
-    box-shadow:0 14px 28px rgba(201,162,39,0.35);
-  }
-  button.cta:disabled{
-    opacity:0.6;
-    cursor:not-allowed;
-    transform:none;
-  }
-  button.cta:focus-visible{
-    outline:2px solid var(--paper);
-    outline-offset:3px;
-  }
+  button.cta:hover{transform:translateY(-1px); box-shadow:0 14px 28px rgba(201,162,39,0.35);}
+  button.cta:disabled{opacity:0.6; cursor:not-allowed; transform:none;}
+  button.cta:focus-visible{outline:2px solid var(--paper); outline-offset:3px;}
 
   #formMessage{
     min-height:18px;
@@ -274,10 +240,9 @@
     font-family:'IBM Plex Mono', monospace;
   }
 
-  /* perforated stub divider */
   .stub-divider{
     position:relative;
-    margin:30px -40px 22px;
+    margin:24px -40px 18px;
     border-top:1.5px dashed rgba(239,231,216,0.22);
   }
   .stub-divider::before,
@@ -292,23 +257,15 @@
   .stub-divider::before{left:-9px;}
   .stub-divider::after{right:-9px;}
 
-  .stub-note{
-    text-align:center;
-    font-size:13.5px;
-    color:var(--muted);
-  }
-  .stub-note a{
-    color:var(--brass-light);
-    font-weight:600;
-    text-decoration:none;
-  }
+  .stub-note{text-align:center; font-size:13.5px; color:var(--muted);}
+  .stub-note a{color:var(--brass-light); font-weight:600; text-decoration:none;}
   .stub-note a:hover{text-decoration:underline;}
 
-  @media (max-width:760px){
+  @media (max-width:780px){
     .shell{grid-template-columns:1fr;}
-    .brand{border-right:none; border-bottom:1px dashed rgba(201,162,39,0.25); padding:36px 30px;}
-    .stat-row{padding-top:24px;}
-    .ticket-wrap{padding:36px 28px;}
+    .brand{border-right:none; border-bottom:1px dashed rgba(201,162,39,0.25); padding:34px 28px;}
+    .ticket-wrap{padding:32px 26px;}
+    .two-col{grid-template-columns:1fr;}
   }
 
   /* ---------- Cinematic entrance ---------- */
@@ -369,7 +326,7 @@
   }
 
   /* button ripple */
-  button.cta{position:relative; overflow:hidden;}
+  button.cta, button.ghost{position:relative; overflow:hidden;}
   .ripple{
     position:absolute;
     border-radius:50%;
@@ -431,56 +388,88 @@
       </div>
 
       <div class="headline">
-        <div class="eyebrow">Member access</div>
-        <h1>Trade what you know for what you want to learn.</h1>
-        <p class="sub">No fees, no wallets — just a fair exchange your Skills of hours between people on campus.</p>
+        <div class="eyebrow">New member</div>
+        <h1>Every skill you have is worth someone else's time.</h1>
+        <p class="sub">Set up your profile in a couple of minutes and start learning and develop your Mindset.</p>
 
-        <div class="ticker" aria-hidden="true">
-          <span>Technical Skills &nbsp;⇄&nbsp; Basic Skills</span>
-          <span>Excel modelling &nbsp;⇄&nbsp; Yoga</span>
-          <span>Photography &nbsp;⇄&nbsp; Spanish</span>
+        <div class="how-list">
+          <div class="how-item"><b>01</b><span>Tell us who you are and confirm your number.</span></div>
+          <div class="how-item"><b>02</b><span>Verify with the one-time code we send you.</span></div>
+          <div class="how-item"><b>03</b><span>List a skill, find a match, start learning.</span></div>
         </div>
       </div>
 
       <div class="stat-row">
         <div class="stat"><b>3.4M</b><span>ACTIVE MEMBERS</span></div>
-        <div class="stat"><b>10990</b><span>HOURS TRADED</span></div>
+        <div class="stat"><b>4.4/5</b><span>AVG.MATCHING RATING</span></div>
       </div>
     </div>
 
-    <!-- Ticket / login panel -->
+    <!-- Ticket / signup panel -->
     <div class="ticket-wrap">
       <div class="ticket-head">
-        <h2>Log in</h2>
-        <span class="ticket-no">TICKET NO. 00482</span>
+        <h2>Create account</h2>
+        <span class="ticket-no">TICKET NO. 00483</span>
       </div>
 
-      <form id="loginForm" novalidate>
-        <div class="field">
-          <label for="USERNAME">Username</label>
-          <input type="text" id="USERNAME" placeholder="your username" autocomplete="username" required>
+      <form id="registerForm" novalidate>
+        <div class="two-col">
+          <div class="field">
+            <label for="NAME">Full name</label>
+            <input type="text" id="NAME" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="USERNAME">Username</label>
+            <input type="text" id="USERNAME" placeholder="Pick a username" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="PASSWORD">Password</label>
+             <input type="password" id="PASSWORD" placeholder="••••••••" autocomplete="new-password" required>
+              <span onclick="togglePassword('PASSWORD', this)">👁️</span>
+        </div>
+          <div class="field">
+            <label for="CONFIRM_PASSWORD">Confirm password</label>
+             <input type="password" id="CONFIRM_PASSWORD" placeholder="••••••••" autocomplete="new-password" required>
+              <span onclick="togglePassword('CONFIRM_PASSWORD', this)">👁️</span>
+            </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="MOBILE">Mobile number</label>
+            <input type="tel" id="MOBILE" placeholder="10-digit number" required>
+          </div>
+          <div class="field">
+            <label for="EMAIL">Email</label>
+            <input type="email" id="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="otp-row">
+          <div class="field">
+            <label for="OTP">One-time code</label>
+            <input type="text" id="OTP" placeholder="6-digit code" inputmode="numeric" required>
+          </div>
+          <button type="button" id="sendBtn" class="ghost" onclick="sendOTP()">Send</button>
         </div>
 
         <div class="field">
-          <label for="PASSWORD">Password</label>
-           <input type="password" id="PASSWORD" placeholder="••••••••" autocomplete="new-password" required>
-           <span onclick="togglePassword('PASSWORD', this)">👁️</span>
+          <label for="LOCATION">Location <span style="opacity:.6;">(optional)</span></label>
+          <input type="text" id="LOCATION" placeholder="City or campus">
         </div>
 
-        <div class="row-between">
-          <span>Keep this device signed in</span>
-          <a href="#">Forgot password?</a>
-        </div>
-
-        <button type="submit" id="loginBtn" class="cta">Log in</button>
+        <button type="submit" class="cta">Create account</button>
         <div id="formMessage" role="status" aria-live="polite"></div>
       </form>
 
       <div class="stub-divider"></div>
-      <p class="stub-note">New to SkillSwap? <a href="signup.html">Create an account</a></p>
+      <p class="stub-note">Already have an account? <a href="login.html">Log in</a></p>
     </div>
   </div>
 
-  <script src="login.js"></script>
+  <script src="signup.js"></script>
 </body>
 </html>
