@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — SkillSwap Campus</title>
+<meta name="description" content="A closer look at how students actually use SkillSwap Campus — matching, chat, badges and certificates — broken down feature by feature.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<!-- Base theme (shared colors, fonts, nav, hero, buttons) -->
+<link rel="stylesheet" href="../css/style.css">
+<!-- Page-specific design -->
+<link rel="stylesheet" href="features.css">
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="particles"></canvas>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark"><img src="../images/logo.png" width="40" height="40" alt="SkillSwap Campus Logo"></span>
+      <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="features.html" class="active">Features</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html">Stories</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+      <a href="../signup.html" class="btn btn-primary magnetic"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="features.html" class="active">Features</a>
+    <a href="how-it-works.html">How it Works</a>
+    <a href="why-us.html">Why Us</a>
+    <a href="stories.html">Stories</a>
+    <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+    <a href="../signup.html" class="btn btn-primary">Creat profile<i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="orbit-section">
+  <div class="orbit-head"data-aos="fade-up">
+    <h1>
+      <span class="line" data-aos="fade-up" data-aos-delay="160">What Actually Happens</span>
+      <br>
+      <span class="line gradient-text" data-aos="fade-up" data-aos-delay="260">Inside a Swap</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="240">
+      Not a feature list — a look at which parts of SkillSwap Campus students
+      reach for the most, and how a skill quietly travels from one student to another.
+    </p>
+  </div>
+</section>
+
+<!-- ============ ORBIT: FEATURE PULL ============ -->
+<section class="orbit-section">
+  <div class="orbit-head" data-aos="fade-up">
+    <span class="tag">Feature gravity</span>
+    <h2>The features students <span class="gradient-text">keep coming back to</span></h2>
+    <p>Every node sits on the same ring — size and the number on it show how many of this week's active students touched that feature.</p>
+  </div>
+
+  <div class="orbit-wrap" data-aos="zoom-in" data-aos-delay="100">
+    <div class="orbit-stage" id="orbitStage">
+      <svg class="orbit-svg" id="orbitSvg" viewBox="0 0 560 560"></svg>
+      <div class="orbit-core">
+        <i class="fa-solid fa-arrows-rotate spin-slow"></i>
+        <span>Core</span>
+      </div>
+      <div id="orbitNodes"></div>
+    </div>
+    <div class="orbit-readout" id="orbitReadout">
+      <p class="orbit-hint"><i class="fa-solid fa-hand-pointer"></i> Tap a node to read its number</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNAL: SKILL EQUALIZER ============ -->
+<section class="signal-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Skill signal</span>
+    <h2><span class="line">What's Loudest On</span> <span class="line gradient-text">Campus Right Now</span></h2>
+    <p>Reading this like a live equalizer: taller bars are skill categories getting listed the most this term.</p>
+  </div>
+
+  <div class="equalizer" id="equalizer" data-aos="fade-up" data-aos-delay="100"></div>
+</section>
+
+<!-- ============ DEEP DIVES ============ -->
+<section class="dive-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Three worth knowing</span>
+    <h2><span class="line">A Closer Look At</span> <span class="line gradient-text">How Each One Behaves</span></h2>
+  </div>
+
+  <div class="dive-list">
+    <div class="dive-item" data-aos="fade-up">
+      <div class="dive-ring" data-value="91">
+        <svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg>
+        <span class="ring-label">91%</span>
+      </div>
+      <div class="dive-copy">
+        <h3>Matching rarely misfires</h3>
+        <p>Nine out of ten pairings go on to schedule a first session — the algorithm weighs skill overlap, timing and format before it ever shows you a name.</p>
+      </div>
+    </div>
+
+    <div class="dive-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="dive-ring" data-value="94">
+        <svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg>
+        <span class="ring-label">94%</span>
+      </div>
+      <div class="dive-copy">
+        <h3>Verification, taken seriously</h3>
+        <p>Campus-email checks plus post-swap ratings mean the overwhelming majority of profiles carry a trust signal before you agree to meet.</p>
+      </div>
+    </div>
+
+    <div class="dive-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="dive-ring" data-value="63">
+        <svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg>
+        <span class="ring-label">63%</span>
+      </div>
+      <div class="dive-copy">
+        <h3>Certificates still catching on</h3>
+        <p>Two in three finished swaps end in a claimed certificate — the rest usually just haven't hit "mark complete" yet, not walked away empty-handed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Questions</span>
+    <h2>Feature <span class="gradient-text">FAQ</span></h2>
+  </div>
+  <div class="faq-item glass-card open" data-aos="fade-up">
+    <div class="faq-question"><span>Is any feature ever paid?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">No. Matching, chat, badges, certificates and verification are free for every verified student, permanently.</div></div>
+  </div>
+  <div class="faq-item glass-card" data-aos="fade-up" data-aos-delay="80">
+    <div class="faq-question"><span>Why do some features sit closer to the core?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">Distance reflects this week's weekly-active usage — the more students touch a feature, the tighter its orbit.</div></div>
+  </div>
+  <div class="faq-item glass-card" data-aos="fade-up" data-aos-delay="160">
+    <div class="faq-question"><span>Can I teach without ever using chat?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">You can meet in person and skip it, but almost 8 in 10 active swaps still use chat at least once to schedule.</div></div>
+  </div>
+</section>
+
+<!-- ============ BACK TO HOME ============ -->
+<div class="back-home" data-aos="fade-up">
+  <a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-arrows-rotate"></i></span>
+        <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+      </a>
+      <p>The student-to-student skill exchange platform. Teach what you know. Learn what you love.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html">Stories</a>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Get Started</h4>
+      <a href="../signup.html">Create Account</a>
+      <a href="../login.html">Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 SkillSwap Campus. Built by students, for students.</p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="features.js"></script>
+</body>
+</html>

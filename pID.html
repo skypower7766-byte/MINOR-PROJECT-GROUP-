@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — SkillSwap Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#1F6F78;--violet:#2DD4BF;--cyan:#E8C170;--green:#A7F3D0;
+  --bg:#0A1118;--bg-soft:#101B26;
+  --panel:rgba(255,255,255,.06);--border:rgba(255,255,255,.14);--border-bright:rgba(255,255,255,.24);
+  --text:#F5F7FA;--muted:#C2CEDA;--dim:#8FA0B2;--bad:#FF8A80;
+  --grad:linear-gradient(120deg,#2DD4BF,#A7F3D0,#E8C170);
+  --ease:cubic-bezier(.16,.84,.44,1);
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;position:relative;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--violet);color:var(--bg)}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--indigo),var(--violet));border-radius:10px}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none;opacity:.28}
+.b1{width:520px;height:520px;background:var(--indigo);top:-180px;left:-120px;animation:f1 16s ease-in-out infinite}
+.b2{width:480px;height:480px;background:var(--violet);top:30%;right:-200px;animation:f2 20s ease-in-out infinite}
+.b3{width:420px;height:420px;background:var(--cyan);bottom:-160px;left:20%;animation:f1 18s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,80px) scale(1.1)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-70px,60px)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
+
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 90px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.15rem}
+.brand i{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:var(--bg);font-style:normal;font-size:.9rem}
+.brand b{color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:.9rem;padding:11px 20px;border-radius:14px;border:1px solid var(--border);background:var(--panel);color:var(--text);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s,background .3s;backdrop-filter:blur(12px)}
+.btn:hover{transform:translateY(-2px);border-color:var(--border-bright)}
+.btn.primary{background:var(--grad);color:var(--bg);border-color:transparent;font-weight:700;box-shadow:0 8px 30px -8px rgba(45,212,191,.6)}
+.btn.primary:hover{box-shadow:0 14px 36px -8px rgba(45,212,191,.8)}
+.btn.sm{padding:9px 14px;font-size:.82rem;border-radius:12px}
+.btn.done{background:rgba(167,243,208,.12);border-color:rgba(167,243,208,.5);color:var(--green)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.glass{background:var(--panel);border:1px solid var(--border);border-radius:24px;backdrop-filter:blur(18px);box-shadow:0 30px 70px -28px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06)}
+.demo{display:none;margin-bottom:16px;padding:12px 16px;border-radius:14px;background:rgba(232,193,112,.08);border:1px dashed rgba(232,193,112,.4);color:var(--cyan);font-size:.85rem}
+
+/* header */
+.head{display:grid;grid-template-columns:auto 1fr;gap:36px;padding:36px;align-items:center}
+.avatar{width:150px;height:150px;border-radius:50%;padding:4px;background:var(--grad);flex-shrink:0}
+.avatar>div{width:100%;height:100%;border-radius:50%;background:var(--bg-soft);display:grid;place-items:center;overflow:hidden;font-family:var(--font-display);font-size:3rem;font-weight:700}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.row1{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.uname{font-family:var(--font-display);font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+.stats{display:flex;gap:30px;margin-bottom:16px}
+.stats div{font-size:.85rem;color:var(--dim)}
+.stats b{display:block;font-family:var(--font-display);font-size:1.4rem;color:var(--text);line-height:1.2}
+.fullname{font-weight:700}
+.meta{color:var(--muted);font-size:.9rem}
+.bio{color:var(--muted);font-size:.92rem;margin:6px 0 10px}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.pill{font-size:.76rem;padding:5px 11px;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--muted)}
+.pill.teach{border-color:rgba(45,212,191,.5);color:#bff3ea}
+.pill.learn{border-color:rgba(232,193,112,.5);color:#f5e2b3}
+.pill.ok{border-color:rgba(167,243,208,.5);color:var(--green)}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+
+/* info blocks */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.info .glass{padding:22px 24px}
+.info h3{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:7px}
+.info p{font-size:.88rem;color:var(--muted);margin-bottom:4px}
+
+/* posts */
+.sec{display:flex;align-items:end;justify-content:space-between;margin:44px 0 16px;gap:12px;flex-wrap:wrap}
+.sec h2{font-family:var(--font-display);font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+.sec small{color:var(--dim);font-size:.85rem}
+.counter{font-size:.8rem;font-weight:700;color:var(--cyan);background:rgba(232,193,112,.1);border:1px solid rgba(232,193,112,.35);padding:4px 12px;border-radius:99px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.post{position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--panel);cursor:pointer;transition:transform .4s var(--ease),box-shadow .4s,border-color .3s}
+.post:hover{transform:translateY(-5px);border-color:rgba(45,212,191,.45);box-shadow:0 24px 60px -24px rgba(45,212,191,.4)}
+.post img{width:100%;height:100%;object-fit:cover;display:block}
+.post .cap{position:absolute;inset:auto 0 0 0;padding:26px 14px 12px;background:linear-gradient(transparent,rgba(10,17,24,.9));font-size:.82rem;opacity:0;transition:opacity .3s}
+.post:hover .cap{opacity:1}
+.post .del{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(10,17,24,.7);color:#fff;font-size:.8rem;opacity:0;transition:opacity .3s}
+.post:hover .del{opacity:1}
+.post .del:hover{color:var(--bad);border-color:var(--bad)}
+.slot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-style:dashed;border-color:var(--border-bright);color:var(--dim);font-size:.85rem}
+.slot span{width:46px;height:46px;border-radius:50%;background:var(--grad);color:var(--bg);display:grid;place-items:center;font-size:1.5rem;font-weight:700}
+.slot.locked{opacity:.45;cursor:not-allowed}
+.slot.locked:hover{transform:none;box-shadow:none;border-color:var(--border-bright)}
+
+/* matches */
+.matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.mc{padding:20px;transition:transform .4s var(--ease),border-color .3s,box-shadow .4s}
+.mc:hover{transform:translateY(-6px);border-color:rgba(45,212,191,.4);box-shadow:0 24px 60px -24px rgba(45,212,191,.35)}
+.mtop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.mav{width:46px;height:46px;border-radius:50%;background:var(--grad);color:var(--bg);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;flex-shrink:0}
+.mname{font-weight:600;font-size:.95rem;line-height:1.2}
+.mcol{font-size:.76rem;color:var(--dim)}
+.score{margin-left:auto;text-align:right}
+.score b{font-family:var(--font-display);font-size:1.15rem;color:var(--green);display:block;line-height:1.1}
+.score span{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.lbl{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:10px 0 5px}
+.perfect{display:inline-block;margin-top:10px;font-size:.72rem;color:var(--cyan);background:rgba(232,193,112,.1);border:1px solid rgba(232,193,112,.35);padding:3px 10px;border-radius:99px}
+.macts{display:flex;gap:8px;margin-top:16px}
+.macts .btn{flex:1}
+
+/* modal + chat */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(10,17,24,.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.box{width:100%;max-width:440px;padding:26px;animation:pop .35s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.box h3{font-family:var(--font-display);font-size:1.3rem;margin-bottom:14px}
+textarea,input[type=text]{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);padding:13px 15px;border-radius:14px;font-family:var(--font-body);font-size:.92rem;outline:none;transition:border-color .2s,box-shadow .2s}
+textarea:focus,input[type=text]:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(45,212,191,.18)}
+textarea{resize:none;min-height:84px}
+.prev{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px;margin-bottom:12px;border:1px solid var(--border)}
+.mrow{display:flex;gap:10px;margin-top:14px;justify-content:flex-end}
+.lb img{width:100%;border-radius:16px;margin-bottom:12px;max-height:60vh;object-fit:contain;background:#000}
+.chat{max-width:420px;padding:0;display:flex;flex-direction:column;height:min(560px,85vh)}
+.chead{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border)}
+.chead .x{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1.1rem}
+.msgs{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:80%;padding:10px 14px;border-radius:16px;font-size:.88rem;line-height:1.45}
+.m.them{background:rgba(255,255,255,.08);border-bottom-left-radius:4px;align-self:flex-start}
+.m.me{background:var(--grad);color:var(--bg);font-weight:500;border-bottom-right-radius:4px;align-self:flex-end}
+.cin{display:flex;gap:8px;padding:14px 18px;border-top:1px solid var(--border)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg-soft);border:1px solid var(--border-bright);padding:12px 20px;border-radius:12px;font-size:.85rem;z-index:80;opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:720px){
+  .head{grid-template-columns:1fr;text-align:center;padding:26px 20px;justify-items:center}
+  .row1,.stats,.badges{justify-content:center}
+  .avatar{width:120px;height:120px}
+  .info{grid-template-columns:1fr}
+  .posts{gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<div class="wrap">
+  <div class="nav">
+    <a class="brand" href=""><i>S</i><span>SkillSwap<b>Campus</b></span></a>
+    <button class="btn sm" id="shuffleTop">⟳ New matches</button>
+  </div>
+
+  <div class="demo" id="demo">Demo profile — finish onboarding to see your own details here.</div>
+
+  <section class="glass head" id="head"></section>
+  <section class="info" id="info"></section>
+
+  <div class="sec"><div><div class="tag">My work</div><h2>Posts</h2></div><span class="counter" id="counter"></span></div>
+  <div class="posts" id="posts"></div>
+
+  <div class="sec"><div><div class="tag">Skill matching</div><h2>People you can swap with</h2><small>Based on what you teach and want to learn</small></div><button class="btn sm" id="shuffle">⟳ Show different people</button></div>
+  <div class="matches" id="matches"></div>
+</div>
+
+<input type="file" accept="image/*" id="file" style="display:none">
+
+<div class="ov" id="postOv"><div class="glass box"><h3>New post</h3><img class="prev" id="prev" alt=""><textarea id="capIn" maxlength="140" placeholder="Write a short caption…"></textarea><div class="mrow"><button class="btn" id="cancelPost">Cancel</button><button class="btn primary" id="sharePost">Share</button></div></div></div>
+<div class="ov" id="viewOv"><div class="glass box lb"><img id="vImg" alt=""><p id="vCap" style="color:var(--muted);font-size:.9rem"></p><div class="mrow"><button class="btn" onclick="closeOv('viewOv')">Close</button></div></div></div>
+<div class="ov" id="chatOv"><div class="glass box chat"><div class="chead"><div class="mav" id="cAv"></div><div><div class="mname" id="cName"></div><div class="mcol">Skill swap chat</div></div><button class="x" onclick="closeOv('chatOv')">✕</button></div><div class="msgs" id="msgs"></div><div class="cin"><input type="text" id="cIn" placeholder="Type a message…"><button class="btn primary sm" id="cSend">Send</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- data: comes from onboarding (localStorage), falls back to demo ---------- */
+const DEMO = {account:{fullName:"Ananya Sharma",username:"ananya_codes"},profile:{username:"ananya_codes",photo:null},
+  academic:{college:"IIT Patna",degree:"B.Tech",branch:"Computer Science",year:"3rd Year",campusCity:"Patna"},
+  about:{bio:"CSE student who loves web dev, UI design and photography.",languages:["English","Hindi"]},
+  teach:{"Web Development":"Advanced","JavaScript":"Intermediate"},learn:{"UI/UX":{level:"Beginner"},"Photography":{level:"Basic"}},
+  availability:{days:["Mon","Wed","Sat"],time:"Evening",duration:"1 hour",useCustom:false},learningMode:["Online","Offline"],communication:["Chat","Video Call"],
+  links:{github:"https://github.com/ananya"},emailVerified:true,phoneVerified:false,collegeVerified:"verified",trust:{responseRate:96,cancellationRate:2},demo:true};
+let P = null;
+try {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'api/get_profile.php', false); // synchronous: page render se pehle data chahiye
+  xhr.send();
+  if (xhr.status === 401) { window.location.href = 'login.html'; }
+  else if (xhr.status === 200) { P = JSON.parse(xhr.responseText); }
+} catch(e){ P = null; }
+if(!P || !P.account || !P.account.fullName){ P = DEMO; document.getElementById('demo').style.display='block'; }
+const esc = s => { const d=document.createElement('div'); d.textContent=s==null?"":s; return d.innerHTML; };
+const ls = (k,d)=>{ try{ return JSON.parse(localStorage.getItem(k)||'null') ?? d }catch(e){ return d } };
+const save = (k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)) }catch(e){ toast('Storage is full — try a smaller image.') } };
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(window._t); window._t=setTimeout(()=>t.classList.remove('show'),2600); }
+function closeOv(id){ document.getElementById(id).classList.remove('on'); }
+function openOv(id){ document.getElementById(id).classList.add('on'); }
+document.querySelectorAll('.ov').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o) o.classList.remove('on'); }));
+
+/* ---------- profile header ---------- */
+const name = P.account.fullName, uname = (P.profile&&P.profile.username)||P.account.username||'user';
+const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+const teach = Object.entries(P.teach||{}), learn = Object.entries(P.learn||{}).map(([n,d])=>[n,d&&d.level||'']);
+const trust = Math.max(0,Math.min(99,60+(P.emailVerified?8:0)+(P.phoneVerified?7:0)+(P.collegeVerified==='verified'?10:0)+Math.round(((P.trust||{}).responseRate||96)/10)-Math.round(((P.trust||{}).cancellationRate||2)/2)));
+function renderHead(){
+  const a=P.academic||{}, posts=ls('skillswap_posts',[]);
+  const badges=[P.emailVerified?'<span class="pill ok">✓ Email verified</span>':'',P.phoneVerified?'<span class="pill ok">✓ Phone verified</span>':'',P.collegeVerified==='verified'?'<span class="pill ok">✓ College verified</span>':P.collegeVerified==='manual'?'<span class="pill">⏳ College ID in review</span>':''].join('');
+  document.getElementById('head').innerHTML=`
+    <div class="avatar"><div>${P.profile&&P.profile.photo?`<img src="${P.profile.photo}" alt="">`:initials}</div></div>
+    <div>
+      <div class="row1"><span class="uname">@${esc(uname)}</span><a class="btn sm" href="onboarding.html">Edit profile</a><button class="btn sm" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);toast('Profile link copied')">Share</button></div>
+      <div class="stats"><div><b>${posts.length}/3</b>posts</div><div><b>${teach.length}</b>can teach</div><div><b>${learn.length}</b>learning</div><div><b>${trust}</b>trust score</div></div>
+      <div class="fullname">${esc(name)}</div>
+      <div class="meta">${esc(a.college||'')}${a.degree&&a.degree!=='Select…'?' · '+esc(a.degree):''}${a.branch?' · '+esc(a.branch):''}${a.year&&a.year!=='Select…'?' · '+esc(a.year):''}</div>
+      <div class="bio">${esc((P.about&&P.about.bio)||'No bio yet.')}</div>
+      <div class="badges">${badges}</div>
+    </div>`;
+  const av=P.availability||{}, t=av.useCustom?`${av.customFrom||''}–${av.customTo||''}`:(av.time||'');
+  const links=Object.entries(P.links||{}).filter(([k,v])=>v);
+  document.getElementById('info').innerHTML=`
+    <div class="glass"><h3>I can teach</h3><div class="pills">${teach.map(([n,l])=>`<span class="pill teach">${esc(n)} • ${esc(l)}</span>`).join('')||'<span class="pill">Nothing added</span>'}</div></div>
+    <div class="glass"><h3>I want to learn</h3><div class="pills">${learn.map(([n,l])=>`<span class="pill learn">${esc(n)}${l?' • '+esc(l):''}</span>`).join('')||'<span class="pill">Nothing added</span>'}</div></div>
+    <div class="glass"><h3>Availability</h3><p>${(av.days||[]).join(', ')||'Not set'}</p><p>${esc(t)}${av.duration?' · '+esc(av.duration)+' sessions':''}</p><p>Mode: ${(P.learningMode||[]).join(', ')||'Not set'}</p></div>
+    <div class="glass"><h3>Contact & links</h3><p>Prefers: ${(P.communication||[]).join(', ')||'Not set'}</p><p>Languages: ${((P.about||{}).languages||[]).join(', ')||'Not set'}</p><div class="pills" style="margin-top:8px">${links.map(([k,v])=>`<a class="pill" href="${esc(v)}" target="_blank" rel="noopener">${esc(k)} ↗</a>`).join('')}</div></div>`;
+}
+
+/* ---------- posts (max 3) ---------- */
+const MAX=3; let pending=null;
+function renderPosts(){
+  const posts=ls('skillswap_posts',[]);
+  document.getElementById('counter').textContent=`${posts.length} / ${MAX} posts`;
+  let h=posts.map((p,i)=>`<div class="post" onclick="viewPost(${i})"><img src="${p.img}" alt=""><div class="cap">${esc(p.cap)}</div><button class="del" title="Delete" onclick="event.stopPropagation();delPost(${i})">✕</button></div>`).join('');
+  for(let i=posts.length;i<MAX;i++) h+= i===posts.length ? `<div class="post slot" onclick="document.getElementById('file').click()"><span>+</span>Add post</div>` : `<div class="post slot locked"><span style="background:rgba(255,255,255,.1);color:var(--dim)">+</span>Empty slot</div>`;
+  document.getElementById('posts').innerHTML=h;
+  renderHead();
+}
+function viewPost(i){ const p=ls('skillswap_posts',[])[i]; if(!p) return; vImg.src=p.img; vCap.textContent=p.cap||''; openOv('viewOv'); }
+function delPost(i){ if(!confirm('Delete this post?')) return; const p=ls('skillswap_posts',[]); p.splice(i,1); save('skillswap_posts',p); renderPosts(); toast('Post deleted'); }
+document.getElementById('file').addEventListener('change',e=>{
+  const f=e.target.files[0]; e.target.value=''; if(!f) return;
+  if(ls('skillswap_posts',[]).length>=MAX){ toast('Only 3 posts are allowed.'); return; }
+  const r=new FileReader();
+  r.onload=ev=>{ const im=new Image(); im.onload=()=>{ const s=Math.min(1,800/Math.max(im.width,im.height)), c=document.createElement('canvas'); c.width=im.width*s; c.height=im.height*s; c.getContext('2d').drawImage(im,0,0,c.width,c.height); pending=c.toDataURL('image/jpeg',.82); prev.src=pending; capIn.value=''; openOv('postOv'); }; im.src=ev.target.result; };
+  r.readAsDataURL(f);
+});
+cancelPost.onclick=()=>{ pending=null; closeOv('postOv'); };
+sharePost.onclick=()=>{ const p=ls('skillswap_posts',[]); if(p.length>=MAX){ toast('Only 3 posts are allowed.'); return; } if(!pending) return; p.push({img:pending,cap:capIn.value.trim()}); save('skillswap_posts',p); pending=null; closeOv('postOv'); renderPosts(); toast('Post shared'); };
+
+/* ---------- skill matching: random people ---------- */
+const PEOPLE=[
+ {n:"Rahul Verma",c:"IIT Patna",t:["JavaScript","React"],l:["UI/UX"],d:["Mon","Wed","Fri"]},
+ {n:"Sneha Kapoor",c:"NIT Trichy",t:["Photography","Photoshop"],l:["Python"],d:["Sat","Sun"]},
+ {n:"Aman Yadav",c:"IIT Patna",t:["UI/UX","Graphic Design"],l:["JavaScript","Web Development"],d:["Tue","Thu"]},
+ {n:"Divya Rao",c:"BITS Pilani",t:["Public Speaking"],l:["Video Editing"],d:["Mon","Tue","Sat"]},
+ {n:"Karan Mehta",c:"IIT Patna",t:["Python","C++"],l:["Photography"],d:["Wed","Fri","Sun"]},
+ {n:"Fatima Sheikh",c:"DU",t:["Digital Marketing"],l:["Web Development"],d:["Thu","Fri"]},
+ {n:"Neha Singh",c:"NIT Patna",t:["Photography","Video Editing"],l:["Web Development","JavaScript"],d:["Mon","Sat"]},
+ {n:"Vikram Das",c:"IIT Patna",t:["Music","Public Speaking"],l:["Python"],d:["Fri","Sun"]},
+ {n:"Pooja Nair",c:"CUSAT",t:["Graphic Design","UI/UX"],l:["Photography"],d:["Wed","Sat"]},
+ {n:"Arjun Reddy",c:"IIIT Hyderabad",t:["Java","C++"],l:["UI/UX","Graphic Design"],d:["Tue","Sun"]}
+];
+const myT=Object.keys(P.teach||{}), myL=Object.keys(P.learn||{}), myD=(P.availability||{}).days||[];
+function score(p){ const a=p.t.filter(s=>myL.includes(s)), b=p.l.filter(s=>myT.includes(s)); let s=24+a.length*20+b.length*20; if(p.d.some(d=>myD.includes(d))) s+=6; if(p.c===(P.academic||{}).college) s+=5; return {s:Math.min(98,s),perfect:a.length>0&&b.length>0}; }
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function renderMatches(){
+  const sent=ls('skillswap_requests',[]);
+  document.getElementById('matches').innerHTML=shuffle(PEOPLE).slice(0,6).map(p=>{ const m=score(p), ini=p.n.split(' ').map(w=>w[0]).join(''), done=sent.includes(p.n);
+    return `<div class="glass mc"><div class="mtop"><div class="mav">${ini}</div><div><div class="mname">${esc(p.n)}</div><div class="mcol">${esc(p.c)}</div></div><div class="score"><b>${m.s}%</b><span>match</span></div></div>
+    <div class="lbl">Can teach</div><div class="pills">${p.t.map(x=>`<span class="pill teach">${esc(x)}</span>`).join('')}</div>
+    <div class="lbl">Wants to learn</div><div class="pills">${p.l.map(x=>`<span class="pill learn">${esc(x)}</span>`).join('')}</div>
+    ${m.perfect?'<span class="perfect">🔥 Perfect SkillSwap match</span>':''}
+    <div class="macts"><button class="btn sm ${done?'done':'primary'}" data-req="${esc(p.n)}">${done?'✓ Requested':'Send Request'}</button><button class="btn sm" data-chat="${esc(p.n)}" data-c="${esc(p.c)}">💬 Chat</button></div></div>`; }).join('');
+}
+document.getElementById('matches').addEventListener('click',e=>{
+  const r=e.target.closest('[data-req]'), c=e.target.closest('[data-chat]');
+  if(r){ let s=ls('skillswap_requests',[]), n=r.dataset.req; if(s.includes(n)){ s=s.filter(x=>x!==n); toast('Request cancelled'); r.className='btn sm primary'; r.textContent='Send Request'; } else { s.push(n); toast('Swap request sent to '+n); r.className='btn sm done'; r.textContent='✓ Requested'; } save('skillswap_requests',s); }
+  if(c) openChat(c.dataset.chat);
+});
+shuffleBtn=()=>{ renderMatches(); toast('Showing new people'); };
+document.getElementById('shuffle').onclick=shuffleBtn; document.getElementById('shuffleTop').onclick=shuffleBtn;
+
+/* ---------- chat (demo replies) ---------- */
+let chatWith=null; const REPLIES=["Hey! Thanks for reaching out 😊","Sounds great — when are you free this week?","I can teach you that. What's your current level?","Let's do a 1-hour session. Online or on campus?","Perfect, I'll send you the details soon!"];
+function openChat(n){ chatWith=n; cName.textContent=n; cAv.textContent=n.split(' ').map(w=>w[0]).join(''); const h=ls('skillswap_chat_'+n,[{f:'them',t:`Hi ${name.split(' ')[0]}! Saw we're a good skill match. Want to swap? 🙂`}]); msgs.innerHTML=''; h.forEach(m=>addMsg(m.f,m.t,false)); openOv('chatOv'); setTimeout(()=>cIn.focus(),50); }
+function addMsg(f,t,store=true){ const d=document.createElement('div'); d.className='m '+f; d.textContent=t; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; if(store){ const k='skillswap_chat_'+chatWith, h=ls(k,[{f:'them',t:`Hi ${name.split(' ')[0]}! Saw we're a good skill match. Want to swap? 🙂`}]); h.push({f,t}); save(k,h); } }
+function send(){ const t=cIn.value.trim(); if(!t) return; cIn.value=''; addMsg('me',t); const w=chatWith; setTimeout(()=>{ if(chatWith===w) addMsg('them',REPLIES[Math.floor(Math.random()*REPLIES.length)]); },900); }
+cSend.onclick=send; cIn.addEventListener('keydown',e=>{ if(e.key==='Enter') send(); });
+
+renderPosts(); renderMatches();
+</script>
+</body>
+</html>

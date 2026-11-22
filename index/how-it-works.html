@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it Works — SkillSwap Campus</title>
+<meta name="description" content="The real timeline of a SkillSwap Campus exchange — how long each step takes, and where students tend to drop off, told through two hand-built graphs.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="how-it-works.css">
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="particles"></canvas>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark"><img src="../images/logo.png" width="40" height="40" alt="SkillSwap Campus Logo"></span>
+      <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html" class="active">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html">Stories</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+      <a href="../signup.html" class="btn btn-primary magnetic"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="how-it-works.html" class="active">How it Works</a>
+    <a href="why-us.html">Why Us</a>
+    <a href="stories.html">Stories</a>
+    <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+    <a href="../signup.html" class="btn btn-primary">Creat profile<i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>
+      <span class="line" data-aos="fade-up" data-aos-delay="160">How Long a Swap</span>
+      <span class="line gradient-text" data-aos="fade-up" data-aos-delay="260">Actually Takes</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="240">
+      Not a checklist — a real timeline. Here's how many days students typically
+      spend on each stage, and how many make it all the way to a badge.
+    </p>
+  </div>
+</section>
+
+<!-- ============ GROWTH PATH CHART ============ -->
+<section class="path-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Days on the clock</span>
+    <h2><span class="line">The Climb From</span> <span class="line gradient-text">Sign-Up To Badge</span></h2>
+    <p>Median days elapsed at each milestone, drawn as a single continuous climb.</p>
+  </div>
+
+  <div class="path-card glass-card" data-aos="fade-up" data-aos-delay="100">
+    <div class="path-canvas-wrap">
+      <svg id="pathSvg" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="path-legend" id="pathLegend"></div>
+  </div>
+</section>
+
+<!-- ============ DESCENDING FUNNEL ============ -->
+<section class="funnel-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Where students are today</span>
+    <h2><span class="line">Out Of Every</span> <span class="line gradient-text">2,500 Sign-Ups</span></h2>
+    <p>Each step below narrows to show how many students are still active at that stage.</p>
+  </div>
+
+  <div class="funnel-stack" id="funnelStack" data-aos="fade-up" data-aos-delay="100"></div>
+</section>
+
+<!-- ============ PROCESS DETAIL ============ -->
+<section class="process-detail">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Step by step</span>
+    <h2><span class="line">What Happens</span> <span class="line gradient-text">At Each Stage</span></h2>
+  </div>
+
+  <div class="process-item" data-aos="fade-up">
+    <div class="process-num">01</div>
+    <div>
+      <h3>Create your profile</h3>
+      <p>Sign up with your campus email, add a photo, and tell the community your year, department, and what you're here for.</p>
+      <div class="process-meta"><span><i class="fa-solid fa-clock"></i> ~1 day</span><span><i class="fa-solid fa-chart-line"></i> 86% finish this step</span></div>
+    </div>
+  </div>
+  <div class="process-item" data-aos="fade-up" data-aos-delay="80">
+    <div class="process-num">02</div>
+    <div>
+      <h3>Add your skills</h3>
+      <p>List what you can teach and what you want to learn, with your level and preferred format — in person, online, or either.</p>
+      <div class="process-meta"><span><i class="fa-solid fa-clock"></i> ~2 days</span><span><i class="fa-solid fa-chart-line"></i> 83% finish this step</span></div>
+    </div>
+  </div>
+  <div class="process-item" data-aos="fade-up" data-aos-delay="160">
+    <div class="process-num">03</div>
+    <div>
+      <h3>Find your match</h3>
+      <p>Smart Matching surfaces students whose skills complement yours. Browse profiles, check ratings, send a request.</p>
+      <div class="process-meta"><span><i class="fa-solid fa-clock"></i> ~4 days</span><span><i class="fa-solid fa-chart-line"></i> 82% get matched</span></div>
+    </div>
+  </div>
+  <div class="process-item" data-aos="fade-up" data-aos-delay="240">
+    <div class="process-num">04</div>
+    <div>
+      <h3>Start learning</h3>
+      <p>Chat to schedule your first session, meet on campus or online, and begin trading knowledge at your own pace.</p>
+      <div class="process-meta"><span><i class="fa-solid fa-clock"></i> ~9 days</span><span><i class="fa-solid fa-chart-line"></i> 87% begin a session</span></div>
+    </div>
+  </div>
+  <div class="process-item" data-aos="fade-up" data-aos-delay="320">
+    <div class="process-num">05</div>
+    <div>
+      <h3>Earn your badge</h3>
+      <p>Wrap up the swap, rate your partner, and collect your badge plus a shareable certificate for your resume.</p>
+      <div class="process-meta"><span><i class="fa-solid fa-clock"></i> ~21 days</span><span><i class="fa-solid fa-chart-line"></i> 73% finish with a badge</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Questions</span>
+    <h2>Process <span class="gradient-text">FAQ</span></h2>
+  </div>
+  <div class="faq-item glass-card open" data-aos="fade-up">
+    <div class="faq-question"><span>What if I don't get matched right away?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">Smart Matching scans new profiles daily, so widening your format or skill-level filters usually surfaces a match within a few days.</div></div>
+  </div>
+  <div class="faq-item glass-card" data-aos="fade-up" data-aos-delay="80">
+    <div class="faq-question"><span>Why does the funnel narrow so much by the end?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">Some students pause mid-swap for exams or breaks — most come back and finish later, which is why the number climbs again term over term.</div></div>
+  </div>
+  <div class="faq-item glass-card" data-aos="fade-up" data-aos-delay="160">
+    <div class="faq-question"><span>Can I run more than one swap at once?</span><i class="fa-solid fa-plus"></i></div>
+    <div class="faq-answer"><div class="faq-answer-inner">Yes — most students run two or three in parallel once they've settled into a rhythm.</div></div>
+  </div>
+</section>
+
+<!-- ============ BACK TO HOME ============ -->
+<div class="back-home" data-aos="fade-up">
+  <a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-arrows-rotate"></i></span>
+        <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+      </a>
+      <p>The student-to-student skill exchange platform. Teach what you know. Learn what you love.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html">Stories</a>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Get Started</h4>
+      <a href="../signup.html">Create Account</a>
+      <a href="../login.html">Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 SkillSwap Campus. Built by students, for students.</p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="how-it-works.js"></script>
+</body>
+</html>

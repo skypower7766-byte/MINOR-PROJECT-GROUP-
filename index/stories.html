@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories — SkillSwap Campus</title>
+<meta name="description" content="How swaps have grown across campus this year, which skills actually get finished, and what students say once they do.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="stories.css">
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="particles"></canvas>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark"><img src="../images/logo.png" width="40" height="40" alt="SkillSwap Campus Logo"></span>
+      <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html" class="active">Stories</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+      <a href="../signup.html" class="btn btn-primary magnetic"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="how-it-works.html">How it Works</a>
+    <a href="why-us.html">Why Us</a>
+    <a href="stories.html" class="active">Stories</a>
+    <a href="../login.html" class="btn btn-glass btn-lg magnetic"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+    <a href="../signup.html" class="btn btn-primary">Creat profile<i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <h1>
+      <span class="line" data-aos="fade-up" data-aos-delay="160">What a Year of Swapping</span>
+      <span class="line gradient-text" data-aos="fade-up" data-aos-delay="260">Looks Like</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="240">
+      Ten months, hundreds of pairings, one running total. Here's the shape
+      of it — and a few of the students behind the numbers.
+    </p>
+  </div>
+</section>
+
+<!-- ============ GROWTH AREA CHART ============ -->
+<section class="growth-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Running total</span>
+    <h2>Completed swaps, <span class="gradient-text">month by month</span></h2>
+    <p>From a quiet August to a very busy May — the climb across one academic year.</p>
+  </div>
+
+  <div class="growth-card glass-card" data-aos="fade-up" data-aos-delay="100">
+    <svg id="growthSvg" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="growth-stat" id="growthStat"></div>
+  </div>
+</section>
+
+<!-- ============ SKILL MOSAIC ============ -->
+<section class="mosaic-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">What actually finishes</span>
+    <h2><span class="line">Completed Swaps</span> <span class="line gradient-text">By Category</span></h2>
+    <p>Tile size shows share of total completions — hover a tile for the count.</p>
+  </div>
+
+  <div class="mosaic-grid" id="mosaicGrid" data-aos="fade-up" data-aos-delay="100"></div>
+</section>
+
+<!-- ============ FILTERABLE STORIES ============ -->
+<section class="stories-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Browse by category</span>
+    <h2>Swap <span class="gradient-text">stories</span></h2>
+  </div>
+
+  <div class="filter-row" data-aos="fade-up">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="design">Design</button>
+    <button class="filter-chip" data-filter="coding">Coding</button>
+    <button class="filter-chip" data-filter="music">Music</button>
+    <button class="filter-chip" data-filter="business">Business</button>
+  </div>
+
+  <div class="story-grid">
+    <div class="glass-card story-card" data-category="design" data-aos="fade-up" data-aos-delay="0">
+      <div class="story-cover"><i class="fa-solid fa-palette"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-guitar"></i></div>
+      <div class="story-body">
+        <span class="story-swap">Design ↔ Guitar</span>
+        <h3>Ananya taught Photoshop, learned guitar</h3>
+        <p>Six Saturdays in, she'd traded retouching tips for barre chords — no money changed hands either way.</p>
+        <div class="story-footer"><div class="avatar av-1"></div><div><strong>Ananya R.</strong><span>Design Sophomore</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass-card story-card" data-category="coding" data-aos="fade-up" data-aos-delay="80">
+      <div class="story-cover"><i class="fa-solid fa-code"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-brain"></i></div>
+      <div class="story-body">
+        <span class="story-swap">AI ↔ Web Dev</span>
+        <h3>Rohan found the exact match he needed</h3>
+        <p>Matched within two days with someone whose "wants to learn" list was his "can teach" list, almost line for line.</p>
+        <div class="story-footer"><div class="avatar av-2"></div><div><strong>Rohan K.</strong><span>CS Junior</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass-card story-card" data-category="business" data-aos="fade-up" data-aos-delay="160">
+      <div class="story-cover"><i class="fa-solid fa-bullhorn"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-certificate"></i></div>
+      <div class="story-body">
+        <span class="story-swap">Marketing ↔ Certificate</span>
+        <h3>Meera's certificate is on her resume</h3>
+        <p>The completion certificate now sits at the top of her resume, and two interviewers have asked about it directly.</p>
+        <div class="story-footer"><div class="avatar av-3"></div><div><strong>Meera S.</strong><span>Business Senior</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass-card story-card" data-category="coding" data-aos="fade-up" data-aos-delay="0">
+      <div class="story-cover"><i class="fa-solid fa-comments"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-robot"></i></div>
+      <div class="story-body">
+        <span class="story-swap">AI ↔ Friendship</span>
+        <h3>Devansh's swap partner became a close friend</h3>
+        <p>What started as a scheduling thread on chat is now a standing Thursday coffee, badge or no badge.</p>
+        <div class="story-footer"><div class="avatar av-4"></div><div><strong>Devansh P.</strong><span>Engineering Freshman</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass-card story-card" data-category="music" data-aos="fade-up" data-aos-delay="80">
+      <div class="story-cover"><i class="fa-solid fa-music"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-language"></i></div>
+      <div class="story-body">
+        <span class="story-swap">Music ↔ Language</span>
+        <h3>Arjun swapped guitar lessons for Spanish</h3>
+        <p>Six weeks in, he could hold a basic conversation — and his partner can now play three clean chords.</p>
+        <div class="story-footer"><div class="avatar av-1"></div><div><strong>Arjun M.</strong><span>Arts Sophomore</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass-card story-card" data-category="design" data-aos="fade-up" data-aos-delay="160">
+      <div class="story-cover"><i class="fa-solid fa-camera-retro"></i><i class="fa-solid fa-arrows-rotate"></i><i class="fa-solid fa-chart-line"></i></div>
+      <div class="story-body">
+        <span class="story-swap">Photography ↔ Excel</span>
+        <h3>Priya turned a swap into a side gig</h3>
+        <p>She taught photography basics and picked up spreadsheet modeling — now she freelance-shoots campus events and tracks her own budget.</p>
+        <div class="story-footer"><div class="avatar av-2"></div><div><strong>Priya D.</strong><span>Design Senior</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE WALL ============ -->
+<section class="quote-section">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">In their words</span>
+    <h2>More from the <span class="gradient-text">wall</span></h2>
+  </div>
+
+  <div class="quote-wall">
+    <div class="quote-chip" data-aos="fade-up" data-aos-delay="0">
+      <i class="fa-solid fa-quote-left"></i>
+      <p>I went in wanting a free way to learn design and left with a mentor who's still just a message away.</p>
+      <span>— Kabir S., Business Sophomore</span>
+    </div>
+    <div class="quote-chip tall" data-aos="fade-up" data-aos-delay="80">
+      <i class="fa-solid fa-quote-left"></i>
+      <p>Verification made the first meeting way less awkward — I knew exactly who I was showing up to meet, badge and all.</p>
+      <span>— Fatima N., Design Junior</span>
+    </div>
+    <div class="quote-chip" data-aos="fade-up" data-aos-delay="160">
+      <i class="fa-solid fa-quote-left"></i>
+      <p>Three badges and one certificate later, I finally feel confident calling myself a public speaker.</p>
+      <span>— Yusuf A., Engineering Senior</span>
+    </div>
+    <div class="quote-chip tall" data-aos="fade-up" data-aos-delay="240">
+      <i class="fa-solid fa-quote-left"></i>
+      <p>I've done four swaps this year and every single partner has been someone I'd happily study with again.</p>
+      <span>— Simran K., CS Sophomore</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BACK TO HOME ============ -->
+<div class="back-home" data-aos="fade-up">
+  <a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-arrows-rotate"></i></span>
+        <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+      </a>
+      <p>The student-to-student skill exchange platform. Teach what you know. Learn what you love.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="stories.html">Stories</a>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="footer-links">
+      <h4>Get Started</h4>
+      <a href="../signup.html">Create Account</a>
+      <a href="../login.html">Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 SkillSwap Campus. Built by students, for students.</p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="stories.js"></script>
+</body>
+</html>

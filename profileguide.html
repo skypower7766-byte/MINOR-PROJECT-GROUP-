@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap Campus — Profile kaise banayein</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1118;--bg-soft:#101B26;--panel:rgba(255,255,255,.06);--bd:rgba(255,255,255,.14);--blue:#2DD4BF;--cyan:#E8C170;--violet:#A7F3D0;--text:#F5F7FA;--muted:#C2CEDA;--dim:#8FA0B2;--good:#A7F3D0;--warn:#E8C170;--grad:linear-gradient(120deg,#2DD4BF,#A7F3D0,#E8C170)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--text);line-height:1.65;min-height:100vh;background:var(--bg);overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased}
+body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none;opacity:.28}
+body::before{width:520px;height:520px;background:#1F6F78;top:-180px;left:-120px}
+body::after{width:440px;height:440px;background:#2DD4BF;top:35%;right:-200px;opacity:.2}
+.wrap{position:relative;z-index:1}
+::selection{background:#2DD4BF;color:#0A1118}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(#1F6F78,#2DD4BF);border-radius:10px}
+.wrap{max-width:820px;margin:0 auto;padding:28px 18px 80px}
+.brand{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;font-size:18px}
+.brand span{color:var(--cyan)}
+.hero{padding:44px 0 28px}
+.tag{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+h1{font-weight:700;font-size:clamp(32px,6vw,52px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:56ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:22px;color:var(--cyan)}
+.fact span{font-size:13px;color:var(--muted)}
+h2{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:22px;margin:34px 0 14px}
+.step{background:var(--panel);border:1px solid var(--bd);border-radius:18px;margin-bottom:12px;overflow:hidden}
+.step summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px}
+.step summary::-webkit-details-marker{display:none}
+.num{width:36px;height:36px;border-radius:50%;background:var(--grad);color:#0A1118;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Fraunces',Georgia,'Times New Roman',serif}
+.st{flex:1;font-weight:600}
+.st small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.badge{font-family:monospace;font-size:10.5px;padding:3px 9px;border-radius:99px;border:1px solid;white-space:nowrap}
+.req{color:#fca5a5;border-color:rgba(248,113,113,.4)}
+.opt{color:var(--good);border-color:rgba(52,211,153,.4)}
+.arrow{color:var(--muted);transition:transform .2s}
+details[open] .arrow{transform:rotate(90deg)}
+.body{padding:0 18px 18px 68px;font-size:14.5px;color:#C2CEDA}
+@media(max-width:560px){.body{padding-left:18px}}
+.body ul{padding-left:18px;margin:6px 0}
+.body li{margin:4px 0}
+.note{margin-top:10px;padding:10px 12px;border-radius:10px;background:rgba(232,193,112,.07);border:1px dashed rgba(232,193,112,.35);font-size:13px;color:var(--cyan)}
+.warn{background:rgba(251,191,36,.07);border-color:rgba(251,191,36,.35);color:var(--warn)}
+code{background:rgba(255,255,255,.08);padding:1px 6px;border-radius:6px;font-size:12.5px}
+.check{display:grid;gap:8px}
+.check label{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:14px}
+.check input{accent-color:var(--blue);margin-top:4px}
+.prog{height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:10px 0 14px}
+.prog i{display:block;height:100%;width:0;background:var(--grad);transition:width .3s}
+.faq details{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:14.5px}
+.faq p{margin-top:8px;color:var(--muted);font-size:14px}
+.cta{display:inline-block;margin-top:28px;padding:14px 28px;border-radius:14px;background:var(--grad);color:#0A1118;box-shadow:0 8px 30px -8px rgba(45,212,191,.6);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">SkillSwap<span>Campus</span></div>
+
+  <header class="hero">
+    <div class="tag">Help Guide</div>
+    <h1>Apna <em>profile</em> kaise banayein?</h1>
+    <p class="lead">SkillSwap Campus par account banana bahut aasan hai. Neeche har step ek-ek karke samjhaya gaya hai — kya bharna hai, kya zaruri hai, aur kya skip kar sakte ho.</p>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><b>17 steps</b><span>poora onboarding</span></div>
+    <div class="fact"><b>~5–8 min</b><span>lagne wala time</span></div>
+    <div class="fact"><b>Free</b><span>koi fees nahi, sirf skill swap</span></div>
+  </div>
+
+  <h2>Step-by-step guide</h2>
+  <p style="color:var(--muted);font-size:13.5px;margin-bottom:14px">Kisi bhi step par click karo, poori detail khul jayegi.</p>
+  <div id="steps"></div>
+
+  <h2>Quick checklist (shuru karne se pehle)</h2>
+  <div class="prog"><i id="bar"></i></div>
+  <div class="check" id="check"></div>
+
+  <h2>Aksar pooche jaane wale sawal</h2>
+  <div class="faq">
+    <details><summary>Mera username "already taken" bol raha hai, ab?</summary><p>Koi dusra username chuno, jaise <code>naam_skill</code> ya <code>naam123</code>. Profile step mein bhi aap username badal sakte ho, wahan turant dikh jata hai ki available hai ya nahi.</p></details>
+    <details><summary>Verification code nahi aaya to?</summary><p>30 second ruko, phir <b>Resend Code</b> dabao. Prototype mode mein code screen par hi dikhaya jata hai (asli email/SMS nahi jata).</p></details>
+    <details><summary>Mere paas college email nahi hai, kya kar sakta hu?</summary><p>Koi dikkat nahi. Step 7 par college ID number daal do (manual review ke liye) ya "Verify later" dabao. Baad mein college email se verify kar sakte ho.</p></details>
+    <details><summary>Phone number dena zaruri hai?</summary><p>Nahi, ye optional hai. "Skip for now" dabao. Lekin verified phone se trust badhta hai aur fake accounts kam hote hain.</p></details>
+    <details><summary>Meri private info kisi ko dikhegi?</summary><p>Nahi. Email default mein hidden rehta hai, aur Step 17 mein aap decide karte ho ki profile Public, Campus Only ya Private rahe. Ghar ka address kabhi nahi manga jata.</p></details>
+    <details><summary>Profile baad mein edit kar sakte hain?</summary><p>Haan. Preview page par har section ke saamne <b>Edit</b> button hota hai, aur baad mein bhi settings se badal sakte ho.</p></details>
+  </div>
+
+  <a class="cta" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Ab apna profile banao →</a>
+</div>
+
+<script>
+const R='<span class="badge req">ZARURI</span>',O='<span class="badge opt">OPTIONAL</span>';
+const steps=[
+["Landing page","Shuruaat",R,`<p><b>Create your profile →</b> button par click karo. Isse signup form khulega.</p>`],
+["Account banao","Signup",R,`<ul><li><b>Full name</b> — apna poora naam</li><li><b>Username</b> — unique hona chahiye (<code>rahul</code>, <code>priya</code>, <code>admin</code>, <code>test</code>, <code>skillswap</code> pehle se liye hue hain)</li><li><b>Email</b> — sahi format mein, jaise <code>you@college.edu</code></li><li><b>Password</b> — 8+ characters, 1 capital, 1 small letter, 1 number, 1 special character (<code>@ # $ !</code>)</li><li><b>Confirm password</b> — wahi password dobara</li><li><b>Terms &amp; Privacy Policy</b> dono par tick lagao</li></ul><div class="note">Password strength meter green hone tak badhao — "Strong" hona chahiye.</div>`],
+["Email verify karo","6-digit code",R,`<p>Aapke email par 6 digit ka code jata hai. Sabhi 6 boxes mein code daalo aur <b>Verify Email</b> dabao.</p><ul><li>Galat code par error aayega, dobara try karo</li><li>30 second baad <b>Resend Code</b> milta hai</li></ul>`],
+["Phone verify karo","Mobile number",O,`<p>Number daalo (jaise <code>+91 98765 43210</code>), <b>Send Code</b> dabao, phir 6 digit code daalo. Nahi karna to <b>Skip for now</b>.</p><div class="note">Verified phone se aapko "Phone Verified" badge milta hai aur trust score badhta hai.</div>`],
+["Basic profile","Username + photo",R,`<ul><li>Username check karo — "✓ Available" dikhna chahiye</li><li><b>Profile photo</b> upload karo (optional, par photo wale profile ko zyada requests milte hain)</li></ul>`],
+["Academic info","College details",R,`<ul><li><b>College / University</b> — jaise IIT Patna</li><li><b>Course / Degree</b> — B.Tech, BCA, MBA, etc.</li><li><b>Branch</b> — jaise Computer Science (optional)</li><li><b>Current year</b> — 1st Year, 2nd Year…</li><li><b>Semester</b> — optional</li><li><b>Graduation year</b></li><li><b>Campus / City</b> — nearby students se match karne ke liye</li></ul>`],
+["College verification","Student badge",O,`<p>Agar aapka email <code>.edu</code>, <code>.ac.in</code> ya <code>.edu.in</code> par khatam hota hai to <b>Verified Student</b> badge turant mil jata hai.</p><ul><li>Otherwise college ID number daalo (manual review)</li><li>Ya <b>Verify later</b> dabao</li></ul>`],
+["Apne baare mein","Bio + languages",R,`<ul><li><b>Bio</b> — chhoti aur honest, <b>20 se 50 characters</b> ke beech</li><li><b>Languages</b> — English, Hindi, Tamil, etc. (jitni aati hain sab chuno)</li></ul><div class="note warn">Bio 50 characters se zyada hui to aage nahi badh paoge. Example: <code>CSE student, love web dev &amp; design</code></div>`],
+["Aapke goals","Kyun join kar rahe ho",R,`<p>Kam se kam ek chuno: Learn new skills, Teach my skills, Find project partners, Build portfolio, Meet other students, Prepare for career, Academic help.</p>`],
+["Skills jo sikha sakte ho","Teach",R,`<ul><li>Kam se kam <b>1 skill</b> chuno (Web Dev, Python, Photoshop, Public Speaking…)</li><li>Search box se dhundo ya <b>custom skill</b> add karo</li><li>Har skill ka level set karo: <b>Beginner / Intermediate / Advanced / Expert</b></li></ul>`],
+["Skills jo seekhna chahte ho","Learn",R,`<ul><li>Kam se kam <b>1 skill</b> chuno</li><li>Level: <b>Beginner / Basic / Intermediate</b></li><li>"Kyun seekhna hai?" optional hai</li></ul><div class="note">Swap tabhi hota hai jab aapki teach skill kisi ki learn skill se match kare, aur ulta bhi.</div>`],
+["Swap preference","Kaise exchange karoge",R,`<ul><li><b>Skill for Skill</b> (recommended) — skill ke badle skill</li><li><b>Teach Only</b> — sirf sikhana</li><li><b>Learn Only</b> — sirf seekhna</li><li><b>Open to Everything</b> — flexible</li></ul>`],
+["Preferred partner","Kiske saath seekhna hai",R,`<ul><li>College: <b>Same college</b> ya <b>Any college</b></li><li>Course: <b>Same course</b> ya <b>Any course</b></li></ul>`],
+["Availability","Kab free ho",R,`<ul><li>Kam se kam <b>1 din</b> chuno (Mon–Sun)</li><li>Time: Morning / Afternoon / Evening / Night ya <b>Custom time</b></li><li>Session duration: 30 min, 45 min, 1 hour ya 2 hours</li></ul>`],
+["Learning mode &amp; contact","Online / Offline",R,`<ul><li><b>Online</b>, <b>Offline</b> ya <b>Both</b> (kam se kam ek)</li><li>Offline chuna to meeting spot daalo, jaise Central Library</li><li>Communication: Chat, Voice Call, Video Call, In-person (kam se kam ek)</li></ul>`],
+["Portfolio links","GitHub, LinkedIn…",O,`<p>GitHub, LinkedIn, Portfolio site, Behance. Link <code>https://</code> se shuru hona chahiye. Nahi hai to <b>Skip this step</b>.</p>`],
+["Privacy settings","Kaun kya dekhega",R,`<ul><li>Visibility: <b>Public</b> / <b>Campus Only</b> / <b>Private</b></li><li>Toggles: email dikhana, links dikhana, availability dikhana</li></ul><div class="note">Email default mein hidden hai — aapka inbox safe rehta hai.</div>`],
+["Preview &amp; finish","Aakhri step",R,`<p>Aapka profile waise hi dikhega jaise dusre students dekhenge. Kuch galat lage to kisi bhi section ka <b>Edit</b> dabao. Sab sahi ho to <b>Complete My Profile 🎉</b> dabao.</p><p style="margin-top:8px">Uske baad aap <b>Dashboard</b> par pahunchoge jahan recommended skill partners aur match % dikhte hain. 🔥 <i>Perfect SkillSwap match</i> ka matlab hai dono ek-dusre ki skill seekh sakte hain.</p>`]
+];
+document.getElementById('steps').innerHTML=steps.map((s,i)=>`<details class="step"><summary><div class="num">${i+1}</div><div class="st">${s[0]}<small>${s[1]}</small></div>${s[2]}<span class="arrow">›</span></summary><div class="body">${s[3]}</div></details>`).join('');
+
+const items=["Ek valid email (college email ho to best)","Strong password soch lo","Phone number (optional)","College / branch / year ki details","Chhoti si bio (20–50 characters)","2–3 skills jo sikha sako, aur 2–3 jo seekhni hain","Free days aur time ka idea","Photo aur GitHub/LinkedIn link (optional)"];
+const c=document.getElementById('check'),bar=document.getElementById('bar');
+c.innerHTML=items.map((t,i)=>`<label><input type="checkbox" data-i="${i}"><span>${t}</span></label>`).join('');
+c.addEventListener('change',()=>{const n=c.querySelectorAll('input:checked').length;bar.style.width=(n/items.length*100)+'%'});
+</script>
+</body>
+</html>

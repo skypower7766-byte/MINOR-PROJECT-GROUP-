@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap Campus — Learn Together. Teach Together. Grow Together.</title>
+<meta name="description" content="SkillSwap Campus is the student-to-student skill exchange platform. Teach what you know, learn what you love — no money involved.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- AOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Particle background -->
+<canvas id="particles"></canvas>
+
+<!-- Floating blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">"<img src="images/logo.png" width="40" height="40 alt="SkillSwap Campus Logo"></span>
+      <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+     <a href="index/features.html">Features</a>
+     <a href="index/how-it-works.html">How it Works</a>
+     <a href="index/why-us.html">Why Us</a>
+     <a href="index/stories.html">Stories</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-glass btn-lg magnetic">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Login</span>
+        </a>
+      <a href="signup.html" class="btn btn-primary magnetic">
+        <span>Sign Up</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+     <a href="index.html">Home</a>
+     <a href="index/features.html">Features</a>
+     <a href="index/how-it-works.html">How it Works</a>
+     <a href="index/why-us.html">Why Us</a>
+     <a href="index/stories.html">Stories</a>
+          <span>Login</span>
+        </a>
+    <a href="signup.html" class="btn btn-primary">Creat profile
+       <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow" data-aos="fade-up">
+        <span class="dot"></span> Skill exchange, campus-wide
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line" data-aos="fade-up" data-aos-delay="0">Learn Together.</span>
+        <span class="line" data-aos="fade-up" data-aos-delay="120">Teach Together.</span>
+        <span class="line gradient-text" data-aos="fade-up" data-aos-delay="240">Grow Together.</span>
+      </h1>
+
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="360">
+        Exchange your skills with students across campus. Teach what you know.
+        Learn what you love. Zero money, all momentum.
+      </p>
+
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="480">
+        <a href="profile.html" class="btn btn-primary btn-lg magnetic">
+          <span>Creat profile</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="pID.html" class="btn btn-glass btn-lg magnetic">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>YOUR PROFILE</span>
+        </a>
+      </div>
+
+      <div class="hero-trust" data-aos="fade-up" data-aos-delay="600">
+        <div class="trust-avatars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p>Joined by <strong>2,500+</strong> students already swapping skills</p>
+      </div>
+    </div>
+
+    <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
+      <!-- ONE card is shown at a time. Cards slide left to right on their own
+           and stop while the cursor is on them. Edit the 6 cards below.
+           PICTURES: put card-1.jpg ... card-6.jpg in your images folder (next to logo.png);
+           each one fills the whole big picture part. Until then a placeholder icon shows.
+           script.js builds the round dots and the loop. -->
+      <div class="card-showcase">
+        <div class="card-slider" id="cardSlider" aria-label="About SkillSwap Campus">
+          <div class="cards-track" id="cardsTrack">
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-right-left"></i></span></div>
+            <img src="images/001.jpg" alt="Skill Exchange" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-right-left"></i> Skill Exchange</span>
+            <div class="card-foot"><i class="fa-solid fa-circle-check"></i> Free for every student</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Swap skills, not money</h3>
+            <p>Offer a skill and request a skill in return. No fees, no subscriptions, just students helping students.</p>
+          </div>
+        </article>
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-shield-halved"></i></span></div>
+            <img src="images/card2.jpg" alt="Verified Students" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-shield-halved"></i> Verified Students</span>
+            <div class="card-foot"><i class="fa-solid fa-id-card"></i> Campus-verified profiles</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Learn with people you trust</h3>
+            <p>Every profile is campus-verified, so you always know who you are studying and swapping skills with.</p>
+          </div>
+        </article>
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-users"></i></span></div>
+            <img src="images/card3.jpg" alt="Study Groups" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-users"></i> Study Groups</span>
+            <div class="card-foot"><i class="fa-solid fa-user-group"></i> Open to all verified students</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Arrange a group in a few taps</h3>
+            <p>Pick a topic, choose a time and invite classmates. Join an open group or start your own study circle.</p>
+          </div>
+        </article>
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span></div>
+            <img src="images/card4.jpg" alt="Smart Matching" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> Smart Matching</span>
+            <div class="card-foot"><i class="fa-solid fa-arrows-left-right"></i> Two-way skill matches</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Find your perfect skill partner</h3>
+            <p>We match what you can teach with what you want to learn, like Design for Photography or Business for AI.</p>
+          </div>
+        </article>
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-calendar-check"></i></span></div>
+            <img src="images/card5.jpg" alt="Plan Sessions" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-calendar-check"></i> Plan Sessions</span>
+            <div class="card-foot"><i class="fa-solid fa-clock"></i> Never miss a session</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Set a time that suits everyone</h3>
+            <p>Schedule sessions around your timetable, on campus or online, and get a reminder before each one starts.</p>
+          </div>
+        </article>
+        <article class="info-card">
+          <!-- TOP (3 parts tall): big picture -->
+          <div class="card-media">
+            <div class="ph"><span class="ph-icon"><i class="fa-solid fa-award"></i></span></div>
+            <img src="/images/card6.jpg" alt="Badges and Progress" onerror="this.remove()">
+            <span class="card-chip"><i class="fa-solid fa-award"></i> Badges and Progress</span>
+            <div class="card-foot"><i class="fa-solid fa-chart-line"></i> 2,500+ students already learning</div>
+          </div>
+          <!-- BOTTOM (1 part tall): information. Keep the title short (one line) and the text to 2 lines -->
+          <div class="card-info">
+            <h3>Prove what you have learned</h3>
+            <p>Track your sessions, collect badges and show your growth on your profile as you learn and teach.</p>
+          </div>
+        </article>
+          </div>
+        </div>
+        <div class="card-dots" id="cardDots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span></span>
+    <p>Scroll</p>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+
+    <div class="marquee-chip"><span>Design</span></div>
+    <div class="marquee-chip"><span>Coding</span></div>
+    <div class="marquee-chip"><span>Music</span></div>
+    <div class="marquee-chip"><span>Marketing</span></div>
+    <div class="marquee-chip"><span>Photography</span></div>
+    <div class="marquee-chip"><span>AI</span></div>
+    <div class="marquee-chip"><span>English</span></div>
+    <div class="marquee-chip"><span>Business</span></div>
+
+    <!-- Duplicate: keeps the loop seamless -->
+    <div class="marquee-chip"><span>Design</span></div>
+    <div class="marquee-chip"><span>Coding</span></div>
+    <div class="marquee-chip"><span>Music</span></div>
+    <div class="marquee-chip"><span>Marketing</span></div>
+    <div class="marquee-chip"><span>Photography</span></div>
+    <div class="marquee-chip"><span>AI</span></div>
+    <div class="marquee-chip"><span>English</span></div>
+    <div class="marquee-chip"><span>Business</span></div>
+
+  </div>
+</div>
+
+<!-- ============ FEATURES ============ -->
+<section class="features" id="features">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Why students love it</span>
+    <h2>Everything you need to <span class="gradient-text">trade knowledge</span></h2>
+    <p>A campus-grade toolkit for finding your match, sharing your craft, and proving what you've learned.</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="feature-icon icon-indigo"><i class="fa-solid fa-right-left"></i></div>
+      <h3>Skill Exchange</h3>
+      <p>Offer a skill, request a skill — no fees, no subscriptions. Just students helping students.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="feature-icon icon-violet"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Verified Students</h3>
+      <p>Every profile is campus-verified, so you always know who you're learning with.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="feature-icon icon-cyan"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <h3>Smart Matching</h3>
+      <p>Our matching engine pairs complementary skills so both sides always win.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="feature-icon icon-green"><i class="fa-solid fa-circle-nodes"></i></div>
+      <h3>Positive Circle</h3>
+      <p>We will highly try to you will make a prefect circle with our students.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="feature-icon icon-indigo"><i class="fa-solid fa-trophy"></i></div>
+      <h3>Achievements</h3>
+      <p>Earn badges as you teach and learn — track your growth session by session.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="feature-icon icon-violet"><i class="fa-solid fa-certificate"></i></div>
+      <h3>Certificates</h3>
+      <p>Completed a swap? Get a shareable certificate to show off on your resume.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="feature-icon icon-cyan"><i class="fa-solid fa-comments"></i></div>
+      <h3>Real-Time Chat</h3>
+      <p>Coordinate sessions, share resources and stay in sync with instant messaging.</p>
+    </div>
+    <div class="glass-card feature-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="feature-icon icon-green"><i class="fa-solid fa-people-group"></i></div>
+      <h3>Campus Community</h3>
+      <p>Join clubs, circles and events built around the skills your campus cares about.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how-it-works">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">The process</span>
+    <h2>Five steps to your <span class="gradient-text">first swap</span></h2>
+    <p>From sign-up to badge — here's exactly what the journey looks like.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+
+    <div class="timeline-step" data-aos="fade-up" data-aos-delay="0">
+      <div class="step-num">01</div>
+      <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
+      <h3>Create Profile</h3>
+      <p>Set up your student profile in minutes and tell campus who you are.</p>
+    </div>
+    <div class="timeline-step" data-aos="fade-up" data-aos-delay="100">
+      <div class="step-num">02</div>
+      <div class="step-icon"><i class="fa-solid fa-layer-group"></i></div>
+      <h3>Add Skills</h3>
+      <p>List what you can teach and what you're eager to learn.</p>
+    </div>
+    <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+      <div class="step-num">03</div>
+      <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <h3>Find Match</h3>
+      <p>Get paired with students whose skills complement yours perfectly.</p>
+    </div>
+    <div class="timeline-step" data-aos="fade-up" data-aos-delay="300">
+      <div class="step-num">04</div>
+      <div class="step-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+      <h3>Start Learning</h3>
+      <p>Meet up, chat, and begin trading knowledge — on campus or online.</p>
+    </div>
+    <div class="timeline-step" data-aos="fade-up" data-aos-delay="400">
+      <div class="step-num">05</div>
+      <div class="step-icon"><i class="fa-solid fa-award"></i></div>
+      <h3>Earn Badges</h3>
+      <p>Complete swaps, collect badges, and build a resume-ready record.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY SKILLSWAP ============ -->
+<section class="why" id="why">
+  <div class="why-visual" data-aos="fade-right">
+    <div class="why-glow"></div>
+    <div class="why-card card-a tilt-card float-y">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div><strong>Priya</strong><span>Teaches UI Design</span></div>
+    </div>
+    <div class="why-card card-b tilt-card float-y-rev">
+      <i class="fa-solid fa-music"></i>
+      <div><strong>Arjun</strong><span>Learning Guitar</span></div>
+    </div>
+    <div class="why-orb"></div>
+  </div>
+
+  <div class="why-content">
+    <span class="tag" data-aos="fade-up">The advantage</span>
+    <h2 data-aos="fade-up" data-aos-delay="80">Why <span class="gradient-text">SkillSwap</span> beats paying for it</h2>
+
+    <ul class="check-list">
+      <li data-aos="fade-up" data-aos-delay="0"><span class="check"><i class="fa-solid fa-check"></i></span>Learn completely free</li>
+      <li data-aos="fade-up" data-aos-delay="80"><span class="check"><i class="fa-solid fa-check"></i></span>Teach others and sharpen your own skill</li>
+      <li data-aos="fade-up" data-aos-delay="160"><span class="check"><i class="fa-solid fa-check"></i></span>Build real connections across campus</li>
+      <li data-aos="fade-up" data-aos-delay="240"><span class="check"><i class="fa-solid fa-check"></i></span>Improve your resume with certified swaps</li>
+      <li data-aos="fade-up" data-aos-delay="320"><span class="check"><i class="fa-solid fa-check"></i></span>Gain confidence teaching what you love</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+      <h3 class="counter" data-target="2500">0</h3>
+      <span>+</span>
+      <p>Students</p>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+      <h3 class="counter" data-target="120">0</h3>
+      <span>+</span>
+      <p>Skills</p>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+      <h3 class="counter" data-target="700">0</h3>
+      <span>+</span>
+      <p>Successful Swaps</p>
+    </div>
+    <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+      <h3 class="counter" data-target="98">0</h3>
+      <span>%</span>
+      <p>Satisfaction</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="section-head" data-aos="fade-up">
+    <span class="tag">Real stories</span>
+    <h2>Loved by students like <span class="gradient-text">you</span></h2>
+  </div>
+
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="glass-card testimonial-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"I taught Photoshop and finally learned guitar in return. Didn't spend a rupee — just my Saturdays."</p>
+        <div class="testimonial-user"><div class="avatar av-1"></div><div><strong>Ananya R.</strong><span>Design Sophomore</span></div></div>
+      </div>
+      <div class="glass-card testimonial-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Smart Matching actually works — paired me with someone who needed exactly what I teach.</p>
+        <div class="testimonial-user"><div class="avatar av-2"></div><div><strong>Rohan K.</strong><span>CS Junior</span></div></div>
+      </div>
+      <div class="glass-card testimonial-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"The certificate from my marketing swap is literally on my resume now. Recruiters ask about it."</p>
+        <div class="testimonial-user"><div class="avatar av-3"></div><div><strong>Meera S.</strong><span>Business Senior</span></div></div>
+      </div>
+      <div class="glass-card testimonial-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Real-time chat made scheduling sessions painless. My AI swap partner is now a close friend."</p>
+        <div class="testimonial-user"><div class="avatar av-4"></div><div><strong>Devansh P.</strong><span>Engineering Freshman</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-inner" data-aos="zoom-in">
+    <h2>Start Your Skill Journey Today</h2>
+    <p>Join thousands of students already teaching, learning, and growing together.</p>
+    <div class="cta-actions">
+      <a href="https://chat.whatsapp.com/FMpkgSK8MvRHMOt8FdXkE6" class="btn btn-primary btn-lg magnetic"><span>WhatsApp Group Join</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a href="login.html" class="btn btn-glass btn-lg magnetic"><span>Already have an account? Login</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-mark"><img src="images/logo.png" width="40" height="40 alt="SkillSwap Campus Logo"></span>
+        <span class="logo-text">SkillSwap<span class="accent">Campus</span></span>
+      </a>
+      <p>The student-to-student skill exchange platform. Teach what you know. Learn what you love.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index/features.html">Features</a>
+      <a href="index/how-it-works.html">How it Works</a>
+      <a href="index/why-us.html">Why Us</a>
+      <a href="index/stories.html">Stories</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Get Started</h4>
+      <a href="signup.html">Create Account</a>
+      <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SkillSwap Campus. Built by students, for students.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
